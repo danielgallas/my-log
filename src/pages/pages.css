@@ -1,0 +1,92 @@
+body {
+    background: #0077B6;
+}
+
+h1 {
+    font-size: 2rem
+}
+
+.login-container {
+    border: 1px solid black;
+    border-radius: 100px;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 3rem;
+    background: #CAF0F8;
+    width: 50%;
+    height: 400px;
+    font-family: Verdana;
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bolder;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.login-title {
+    padding: 5px;
+    margin: 5px;
+    flex: 2;
+}
+
+.login-item {
+    width: 90%;
+    display: flex;
+    padding: 10px;
+    margin: 5px;
+    background: lightblue;
+}
+
+.login-btn {
+background: lightblue;
+border: 1px;
+padding: 15px;
+width: 100px;
+border-radius: 15px;
+font-size: 1.25rem;
+}
+
+.login-btn:hover {
+    background: #48cae4;
+    cursor: pointer;
+}
+
+.login-input{
+    font-size: 1.25rem;
+    border-radius: 15px;
+    margin: 5px;
+    padding: 4px;
+}
+
+.show{
+    display:block
+}
+
+.hide{
+    display:none
+}
+
+
+.dashboard-container {
+    border: 1px solid black;
+    border-radius: 100px;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 3rem;
+    background: #CAF0F8;
+    width: 50%;
+    height: 400px;
+    font-family: Verdana;
+    text-align: left;
+    font-size: 1.25rem;
+    font-weight: bolder;
+    display: block;
+    flex-wrap: nowrap;
+}
+
+.dashboard-item {
+    width: 80%;
+    padding: 5px;
+    border: 1px solid;
+    border-radius: 15px;
+}
