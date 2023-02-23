@@ -4,7 +4,8 @@ import data from "../data";
 
 function Dashboard() {
   const [logs, setLogs] = useState(data);
-  const [search, setSearch] = useState(null);
+  const [currentEntry, setCurrentEntry] = useState(null);
+
   // const getData = async () => {
   //   try {
   //     const response = await fetch(url);
@@ -23,14 +24,13 @@ function Dashboard() {
 
   const handleClick = (e, entry) => {
     e.preventDefault();
-    setSearch(entry);
-    console.log(entry);
+    setCurrentEntry(entry);
     return;
   };
 
   return (
     <>
-      <div className="dashboard-container">
+      <div className="dashboard-container dashboard-list">
         <h1>My log: </h1>
         {logs.map((item) => {
           const { id, title, entry, timestamp } = item;
@@ -47,10 +47,22 @@ function Dashboard() {
             </div>
           );
         })}
+        <div className="dashboard-item" style={{ "text-align": "center" }}>
+          <button
+            className="dashboard-clickable"
+            onClick={() => setCurrentEntry(null)}
+          >
+            Create entry
+          </button>
+        </div>
       </div>
       <div className="dashboard-container">
-        Entry: {search}
-        {logs.find((item) => item.id === search)}
+        <h1>Entry:</h1>
+        {currentEntry ? (
+          currentEntry
+        ) : (
+          <textarea className="dashboard-item"></textarea>
+        )}
       </div>
     </>
   );

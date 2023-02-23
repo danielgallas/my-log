@@ -75,7 +75,6 @@ font-size: 1.25rem;
     padding: 3rem;
     background: #CAF0F8;
     width: 50%;
-    height: 400px;
     font-family: Verdana;
     text-align: left;
     font-size: 1.25rem;
@@ -83,13 +82,20 @@ font-size: 1.25rem;
     display: block;
     flex-wrap: nowrap;
 }
+.dashboard-list{
+    height: 400px;
+}
 
 .dashboard-item {
-    width: 80%;
+    width: 90%;
     padding: 5px;
     border: 1px solid;
     border-radius: 15px;
-}
+    font-family: Verdana;
+    text-align: left;
+    font-size: 1.25rem;
+    font-weight: bolder;
+    }
 
 .dashboard-clickable {
     border: 0px;
