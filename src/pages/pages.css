@@ -6,6 +6,10 @@ h1 {
     font-size: 2rem
 }
 
+section {
+
+}
+
 .login-container {
     border: 1px solid black;
     border-radius: 100px;
@@ -68,6 +72,7 @@ font-size: 1.25rem;
 
 
 .dashboard-container {
+    float: left;
     border: 1px solid black;
     border-radius: 100px;
     margin: auto;
