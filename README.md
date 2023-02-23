@@ -1,6 +1,12 @@
+###### COOLORS PALLETTE
+
+https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8f4-caf0f8
+
 ###### THINGS TO DO
 
 - in login page have a handlesubmit function that links to the dashboard
+- create dashboard
+  - have a list of items
 
 # Getting Started with Create React App
 

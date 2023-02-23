@@ -90,3 +90,18 @@ font-size: 1.25rem;
     border: 1px solid;
     border-radius: 15px;
 }
+
+.dashboard-clickable {
+    border: 0px;
+    border-radius: 15px;
+    background-color: #48CAE4;
+    font-family: Verdana;
+    text-align: left;
+    font-size: 1.25rem;
+    font-weight: bolder;
+}
+
+.dashboard-clickable:hover {
+    background-color: #0096C7;
+    cursor: pointer;
+}

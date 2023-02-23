@@ -22,7 +22,6 @@ function Home() {
             User:
             <input
               className="login-input"
-              type={Text}
               placeholder={"username"}
               name={username}
             />
@@ -31,7 +30,6 @@ function Home() {
             Password:
             <input
               className="login-input"
-              type={Text}
               placeholder={"password"}
               name={password}
             />
