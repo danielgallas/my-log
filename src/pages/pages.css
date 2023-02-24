@@ -87,9 +87,6 @@ font-size: 1.25rem;
     display: block;
     flex-wrap: nowrap;
 }
-.dashboard-list{
-    height: 400px;
-}
 
 .dashboard-item {
     width: 90%;

@@ -25,8 +25,10 @@ function Dashboard() {
   //   getData();
   // }, []);
 
-  const handleClick = (e, entry) => {
+  const handleClick = (e, entry, title, id) => {
     e.preventDefault();
+    setNewTitle(title);
+    console.log(newTitle);
     setCurrentEntry(entry);
     return;
   };
@@ -40,12 +42,12 @@ function Dashboard() {
       entry: newEntry,
       timestamp: "February 23 2022, 17:17",
     };
-    setLogs([...data, newItem]);
+    setLogs([...logs, newItem]);
   };
 
   return (
     <section>
-      <div className="dashboard-container dashboard-list">
+      <div className="dashboard-container">
         <h1>My log: </h1>
         {logs.map((item) => {
           const { id, title, entry, timestamp } = item;
@@ -54,7 +56,7 @@ function Dashboard() {
               {id}:
               <button
                 className="dashboard-clickable"
-                onClick={(e) => handleClick(e, entry)}
+                onClick={(e) => handleClick(e, entry, title, id)}
               >
                 {title}
               </button>
@@ -72,7 +74,7 @@ function Dashboard() {
         </div>
       </div>
       <div className="dashboard-container">
-        <h1>Entry:</h1>
+        <h1>Entry: {newTitle}</h1>
         {currentEntry ? (
           currentEntry
         ) : (
