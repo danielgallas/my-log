@@ -12,7 +12,7 @@ Minor bugs:
 
 Backend:
 - DONE: Create the backend folder structure
-- Think of the methods: get and post
+- DONE: Think of the methods: get and post
 - Set up a database in mongoDB
 - Reversion frontend to include methods
 - Reversion data.js file to become a json file stored in mongoDB
