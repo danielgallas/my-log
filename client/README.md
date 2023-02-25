@@ -1,15 +1,23 @@
-###### COOLORS PALLETTE
+###### COOLORS PALLETTE: BLUE FOR THIS PROJECT
 
 https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8f4-caf0f8
 
 ###### THINGS TO DO
 
-1. Why are my newItems not being permanent? Every new entry is overwriting on top of the old one
-2. In data.js: change id from string to number
+Minor bugs:
 
-After all this is done, I would like to implement backend and database for this project, via mongoDB.
+- Empty entries have no titles and they return the entry box
+- Date should be written in a different format
+- Entry box should scroll down within the box
+- Paragraphs don't exist
 
-1. Create the backend folder structure
+Backend:
+
+- Create the backend folder structure
+- Think of the methods: get and post
+- Set up a database in mongoDB
+- Reversion frontend to include methods
+- Reversion data.js file to become a json file stored in mongoDB
 
 # Getting Started with Create React App
 
