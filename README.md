@@ -5,15 +5,13 @@ https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8
 ###### THINGS TO DO
 
 Minor bugs:
-
 - Empty entries have no titles and they return the entry box
 - Date should be written in a different format
 - Entry box should scroll down within the box
 - Paragraphs don't exist
 
 Backend:
-
-- Create the backend folder structure
+- DONE: Create the backend folder structure
 - Think of the methods: get and post
 - Set up a database in mongoDB
 - Reversion frontend to include methods
