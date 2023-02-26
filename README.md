@@ -19,7 +19,9 @@ Backend:
 - DONE: do a schema for my-log database
 - DONE: create a basic database by using POSTMAN and PUT
 - DONE: set up GET and POST methods to work properly
-- have a look at the rest of project 1 by john smilga
+- DONE: have a look at the rest of project 1 by john smilga
+- DONE: implement the getOne with id parameter
+- make the getOne find the right json object in the database
 - adapt frontend to receive data from database (axios library?)
 
 # Getting Started with Create React App

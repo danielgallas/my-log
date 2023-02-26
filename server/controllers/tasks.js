@@ -9,7 +9,14 @@ const createNewEntry = async (req, res) => {
   res.status(201).json({ task });
 };
 
+const getOneEntry = async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  res.send(id);
+};
+
 module.exports = {
   getAllEntries,
   createNewEntry,
+  getOneEntry,
 };
