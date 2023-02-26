@@ -6,10 +6,11 @@ https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8
 
 Minor bugs:
 
-- Empty entries have no titles and they return the entry box
-- Date should be written in a different format
-- Entry box should scroll down within the box
-- Paragraphs don't exist
+- Frontend: Empty entries have no titles and they return the entry box
+- Frontend: Date should be written in a different format
+- Frontend: Entry box should scroll down within the box
+- Frontend: Paragraphs don't exist
+- Backend: create error handling when no valid id is sent to getOneEntry (avoid app to crash)
 
 Backend:
 
@@ -21,7 +22,7 @@ Backend:
 - DONE: set up GET and POST methods to work properly
 - DONE: have a look at the rest of project 1 by john smilga
 - DONE: implement the getOne with id parameter
-- make the getOne find the right json object in the database
+- DONE: make the getOne find the right json object in the database
 - adapt frontend to receive data from database (axios library?)
 
 # Getting Started with Create React App

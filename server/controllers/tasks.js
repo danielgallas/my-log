@@ -1,7 +1,8 @@
 const Task = require("../models/Task");
 
-const getAllEntries = (req, res) => {
-  res.send("getting all entries");
+const getAllEntries = async (req, res) => {
+  const tasks = await Task.find({});
+  res.status(201).json({ tasks });
 };
 
 const createNewEntry = async (req, res) => {
@@ -10,9 +11,13 @@ const createNewEntry = async (req, res) => {
 };
 
 const getOneEntry = async (req, res) => {
-  const { id } = req.params;
-  console.log(id);
-  res.send(id);
+  const { id: taskID } = req.params;
+  const task = await Task.findOne({ _id: taskID });
+  if (!task) {
+    return res.send("no task with that id");
+  } else {
+    res.status(201).json({ task });
+  }
 };
 
 module.exports = {
