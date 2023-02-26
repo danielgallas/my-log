@@ -5,17 +5,22 @@ https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8
 ###### THINGS TO DO
 
 Minor bugs:
+
 - Empty entries have no titles and they return the entry box
 - Date should be written in a different format
 - Entry box should scroll down within the box
 - Paragraphs don't exist
 
 Backend:
+
 - DONE: Create the backend folder structure
 - DONE: Think of the methods: get and post
-- Set up a database in mongoDB
-- Reversion frontend to include methods
-- Reversion data.js file to become a json file stored in mongoDB
+- DONE: Set up a database in mongoDB
+- DONE: do a schema for my-log database
+- DONE: create a basic database by using POSTMAN and PUT
+- DONE: set up GET and POST methods to work properly
+- have a look at the rest of project 1 by john smilga
+- adapt frontend to receive data from database (axios library?)
 
 # Getting Started with Create React App
 
