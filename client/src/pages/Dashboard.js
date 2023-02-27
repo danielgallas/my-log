@@ -12,9 +12,7 @@ function Dashboard() {
 
   const fetchData = async () => {
     try {
-      const response = await axios("http://localhost:5000/api/v1/tasks/");
-      console.log(data);
-      console.log(response.data.tasks);
+      const response = await axios.get("http://localhost:5000/api/v1/tasks/");
       setLogs(response.data.tasks);
     } catch (error) {
       console.log(error);
@@ -25,10 +23,9 @@ function Dashboard() {
     fetchData();
   }, []);
 
-  const handleClick = (e, entry, title, id) => {
+  const handleClick = (e, entry, title) => {
     e.preventDefault();
     setNewTitle(title);
-    console.log(newTitle);
     setCurrentEntry(entry);
     return;
   };
@@ -45,18 +42,21 @@ function Dashboard() {
     setLogs([...logs, newItem]);
   };
 
+  let index = 0;
+
   return (
     <section>
       <div className="dashboard-container">
         <h1>My log: </h1>
         {logs.map((item) => {
-          const { id, title, entry, timestamp } = item;
+          index = index + 1;
+          const { _id, title, entry, timestamp } = item;
           return (
-            <div key={id} className="dashboard-item">
-              {id}:
+            <div key={_id} className="dashboard-item">
+              {index}:
               <button
                 className="dashboard-clickable"
-                onClick={(e) => handleClick(e, entry, title, id)}
+                onClick={(e) => handleClick(e, entry, title)}
               >
                 {title}
               </button>
