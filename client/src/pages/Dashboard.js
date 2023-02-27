@@ -8,12 +8,24 @@ function Dashboard() {
   const [currentEntry, setCurrentEntry] = useState(null);
   const [newEntry, setNewEntry] = useState("");
   const [newTitle, setNewTitle] = useState("");
-  const [newId, setNewId] = useState(4);
 
   const fetchData = async () => {
     try {
       const response = await axios.get("http://localhost:5000/api/v1/tasks/");
       setLogs(response.data.tasks);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const postData = async () => {
+    try {
+      await axios.post("http://localhost:5000/api/v1/tasks/", {
+        id: "5",
+        title: newTitle,
+        entry: newEntry,
+        timestamp: "February 27 2023, 20:42",
+      });
     } catch (error) {
       console.log(error);
     }
@@ -32,14 +44,13 @@ function Dashboard() {
 
   const handleEntry = (e, newEntry, newTitle) => {
     e.preventDefault();
-    setNewId(newId + 1);
     let newItem = {
-      id: newId,
       title: newTitle,
       entry: newEntry,
       timestamp: "February 23 2022, 17:17",
     };
     setLogs([...logs, newItem]);
+    postData();
   };
 
   let index = 0;
@@ -49,10 +60,10 @@ function Dashboard() {
       <div className="dashboard-container">
         <h1>My log: </h1>
         {logs.map((item) => {
-          index = index + 1;
-          const { _id, title, entry, timestamp } = item;
+          const { title, entry, timestamp } = item;
+          index += 1;
           return (
-            <div key={_id} className="dashboard-item">
+            <div key={index} className="dashboard-item">
               {index}:
               <button
                 className="dashboard-clickable"
@@ -67,7 +78,10 @@ function Dashboard() {
         <div className="dashboard-item">
           <button
             className="dashboard-clickable"
-            onClick={() => setCurrentEntry(null)}
+            onClick={() => {
+              setNewTitle("");
+              setCurrentEntry(null);
+            }}
           >
             Create entry
           </button>
@@ -79,7 +93,7 @@ function Dashboard() {
           currentEntry
         ) : (
           <>
-            <form onSubmit={(e) => handleEntry(e, newEntry, newTitle, newId)}>
+            <form onSubmit={(e) => handleEntry(e, newEntry, newTitle)}>
               <textarea
                 onChange={(e) => setNewEntry(e.target.value)}
                 className="dashboard-item"
