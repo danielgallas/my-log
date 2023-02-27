@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./pages.css";
 import data from "../data";
 import axios from "axios";
@@ -13,14 +13,17 @@ function Dashboard() {
   const fetchData = async () => {
     try {
       const response = await axios("http://localhost:5000/api/v1/tasks/");
-      console.log(response);
-      console.log(response.data.tasks[0]);
+      console.log(data);
+      console.log(response.data.tasks);
+      setLogs(response.data.tasks);
     } catch (error) {
       console.log(error);
     }
   };
 
-  fetchData();
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleClick = (e, entry, title, id) => {
     e.preventDefault();
