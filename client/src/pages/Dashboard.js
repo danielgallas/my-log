@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./pages.css";
 import data from "../data";
 import axios from "axios";
+import { TbTrash } from "react-icons/tb";
 
 function Dashboard() {
   const [logs, setLogs] = useState(data);
@@ -53,14 +54,25 @@ function Dashboard() {
     postData();
   };
 
+  const handleDelete = async (e, _id) => {
+    e.preventDefault();
+    try {
+      await axios.delete("http://localhost:5000/api/v1/tasks/" + _id);
+      fetchData();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   let index = 0;
 
   return (
     <section>
+      {/* LIST OF LOG ENTRIES */}
       <div className="dashboard-container">
         <h1>My log: </h1>
         {logs.map((item) => {
-          const { title, entry, timestamp } = item;
+          const { _id, title, entry, timestamp } = item;
           index += 1;
           return (
             <div key={index} className="dashboard-item">
@@ -71,10 +83,17 @@ function Dashboard() {
               >
                 {title}
               </button>
-              : {timestamp}
+              : {timestamp} :{" "}
+              <button
+                className="dashboard-clickable"
+                onClick={(e) => handleDelete(e, _id)}
+              >
+                <TbTrash />
+              </button>
             </div>
           );
         })}
+        {/* CREATE NEW ENTRY */}
         <div className="dashboard-item">
           <button
             className="dashboard-clickable"

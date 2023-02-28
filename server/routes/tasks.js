@@ -4,9 +4,10 @@ const {
   getAllEntries,
   createNewEntry,
   getOneEntry,
+  deleteEntry,
 } = require("../controllers/tasks");
 
 router.route("/").get(getAllEntries).post(createNewEntry);
-router.route("/:id").get(getOneEntry);
+router.route("/:id").get(getOneEntry).delete(deleteEntry);
 
 module.exports = router;
