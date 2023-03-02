@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import "./pages.css";
 import data from "../data";
 import axios from "axios";
-import { TbTrash } from "react-icons/tb";
+import { TbTrash, TbEdit } from "react-icons/tb";
 
 function Dashboard() {
   const [logs, setLogs] = useState(data);
   const [currentEntry, setCurrentEntry] = useState(null);
+  const [currentId, setCurrentId] = useState("");
   const [newEntry, setNewEntry] = useState("");
   const [newTitle, setNewTitle] = useState("");
+  const [isDisplaying, setIsDisplaying] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -32,6 +35,29 @@ function Dashboard() {
     }
   };
 
+  const patchData = async (e, _id) => {
+    try {
+      await axios.patch("http://localhost:5000/api/v1/tasks/" + _id, {
+        title: newTitle,
+        entry: newEntry,
+        timestamp: "March 2 2023, 06:17",
+      });
+      fetchData();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDelete = async (e, _id) => {
+    e.preventDefault();
+    try {
+      await axios.delete("http://localhost:5000/api/v1/tasks/" + _id);
+      fetchData();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -45,22 +71,16 @@ function Dashboard() {
 
   const handleEntry = (e, newEntry, newTitle) => {
     e.preventDefault();
-    let newItem = {
-      title: newTitle,
-      entry: newEntry,
-      timestamp: "February 23 2022, 17:17",
-    };
-    setLogs([...logs, newItem]);
-    postData();
-  };
-
-  const handleDelete = async (e, _id) => {
-    e.preventDefault();
-    try {
-      await axios.delete("http://localhost:5000/api/v1/tasks/" + _id);
-      fetchData();
-    } catch (error) {
-      console.log(error);
+    if (isEditing) {
+      patchData(e, currentId);
+    } else {
+      let newItem = {
+        title: newTitle,
+        entry: newEntry,
+        timestamp: "February 23 2022, 17:17",
+      };
+      setLogs([...logs, newItem]);
+      postData();
     }
   };
 
@@ -79,7 +99,11 @@ function Dashboard() {
               {index}:
               <button
                 className="dashboard-clickable"
-                onClick={(e) => handleClick(e, entry, title)}
+                onClick={(e) => {
+                  setIsDisplaying(true);
+                  setCurrentId(_id);
+                  handleClick(e, entry, title);
+                }}
               >
                 {title}
               </button>
@@ -90,6 +114,18 @@ function Dashboard() {
               >
                 <TbTrash />
               </button>
+              <button
+                className="dashboard-clickable"
+                onClick={(e) => {
+                  setNewEntry(entry);
+                  setNewTitle(title);
+                  setCurrentId(_id);
+                  setIsDisplaying(false);
+                  setIsEditing(true);
+                }}
+              >
+                <TbEdit />
+              </button>
             </div>
           );
         })}
@@ -98,6 +134,9 @@ function Dashboard() {
           <button
             className="dashboard-clickable"
             onClick={() => {
+              setIsDisplaying(false);
+              setIsEditing(false);
+              setNewEntry("");
               setNewTitle("");
               setCurrentEntry(null);
             }}
@@ -106,27 +145,56 @@ function Dashboard() {
           </button>
         </div>
       </div>
+
+      {/* SECOND BOX */}
       <div className="dashboard-container">
-        <h1>Entry: {newTitle}</h1>
-        {currentEntry ? (
-          currentEntry
-        ) : (
+        {isDisplaying ? (
+          // DISPLAYING LOG ENTRY
           <>
+            <h1>
+              Entry: {newTitle}{" "}
+              <button
+                className="dashboard-clickable"
+                onClick={(e) => {
+                  setIsDisplaying(false);
+                  setIsEditing(true);
+                  setNewEntry(currentEntry);
+                  setNewTitle(newTitle);
+                }}
+              >
+                <TbEdit />
+              </button>
+            </h1>
+            {currentEntry}
+          </>
+        ) : (
+          // DISPLAYING EDIT/CREATE BOX
+          <>
+            <div className="dashboard-entry">
+              <h1>
+                <label>
+                  Entry:{" "}
+                  <input
+                    value={newTitle}
+                    onChange={(e) => setNewTitle(e.target.value)}
+                    className="dashboard-entry-input"
+                  />
+                </label>
+              </h1>
+            </div>
             <form onSubmit={(e) => handleEntry(e, newEntry, newTitle)}>
               <textarea
+                value={newEntry}
                 onChange={(e) => setNewEntry(e.target.value)}
                 className="dashboard-item"
                 rows="10"
               />
-              <input
-                onChange={(e) => setNewTitle(e.target.value)}
-                className="dashboard-item"
-              />
               <button
                 className="dashboard-item dashboard-clickable"
                 type="submit"
+                style={{ width: "300px" }}
               >
-                Submit entry
+                {isEditing ? "Edit entry" : "Create new entry"}
               </button>
             </form>
           </>

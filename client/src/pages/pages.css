@@ -6,10 +6,6 @@ h1 {
     font-size: 2rem
 }
 
-section {
-
-}
-
 .login-container {
     border: 1px solid black;
     border-radius: 100px;
@@ -99,7 +95,24 @@ font-size: 1.25rem;
     font-weight: bolder;
     }
 
-.dashboard-clickable {
+
+.dashboard-entry {
+    width: 100%;
+    padding: 0px;
+    border: 0px solid;
+}
+
+.dashboard-entry-input {
+        width: 50%;
+        padding: 5px;
+        border: 1px solid;
+        border-radius: 15px;
+        font-family: Verdana;
+        text-align: left;
+        font-size: 1.25rem;
+        font-weight: bolder;}
+
+    .dashboard-clickable {
     border: 0px;
     border-radius: 15px;
     background-color: #48CAE4;

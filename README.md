@@ -25,12 +25,16 @@ Backend:
 - DONE: make the getOne find the right json object in the database
 - DONE: adapt frontend to receive data from database (with axios library?)
 - DONE: Implement get one entry in the log (IT WASN'T NEEDED, I CAN HANDLE IT WITHOUT THE SERVER, BECAUSE DATA HAS BEEN FETCHED ALREADY)
-- Implement put for entries in the log
-- Implement delete and patch
+- DONE: Implement put for entries in the log
+- DONE: Implement delete
+- Implement patch
 - Implement token and password
 - Correct timestamp
+- Correct id/index
 - Build and deploy app (take care of dotenv)
 - Implement error handler
+- Implement different pages for more than 5 entries
+- Implement validators
 
 # Getting Started with Create React App
 
