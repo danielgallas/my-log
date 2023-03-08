@@ -1,14 +1,18 @@
 const express = require("express");
 const app = express();
-const tasks = require("./routes/tasks");
 const connectDB = require("./db/connect");
 require("dotenv").config();
 const cors = require("cors");
+const authRouter = require("./routes/auth");
+const tasksRouter = require("./routes/tasks");
 
 // middleware
 app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
-app.use("/api/v1/tasks", tasks);
+
+// routes
+app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/tasks", tasksRouter);
 
 const start = async () => {
   try {

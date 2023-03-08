@@ -14,6 +14,23 @@ Minor bugs:
 
 Backend:
 
+MAJOR THINGS:
+
+- Implement token and password
+- Build and deploy app (take care of dotenv)
+- Implement validators
+- Implement error handler
+
+MINOR THINGS:
+
+- Implement different pages for more than 5 entries
+- Implement IS LOADING
+- Make EDITED and CREATED logs be displayed immediately after edition/creation
+- Correct timestamp
+- Correct id/index
+
+DONE:
+
 - DONE: Create the backend folder structure
 - DONE: Think of the methods: get and post
 - DONE: Set up a database in mongoDB
@@ -27,14 +44,7 @@ Backend:
 - DONE: Implement get one entry in the log (IT WASN'T NEEDED, I CAN HANDLE IT WITHOUT THE SERVER, BECAUSE DATA HAS BEEN FETCHED ALREADY)
 - DONE: Implement put for entries in the log
 - DONE: Implement delete
-- Implement patch
-- Implement token and password
-- Correct timestamp
-- Correct id/index
-- Build and deploy app (take care of dotenv)
-- Implement error handler
-- Implement different pages for more than 5 entries
-- Implement validators
+- DONE: Implement patch
 
 # Getting Started with Create React App
 
