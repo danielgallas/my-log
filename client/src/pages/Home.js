@@ -1,16 +1,30 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./pages.css";
-
-let username = "";
-let password = "";
+import axios from "axios";
+import useAuth from "../hooks/useAuth";
 
 function Home() {
+  const { setAuth } = useAuth();
   const [toggle, setToggle] = useState(false);
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setToggle(!toggle);
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/v1/auth/login",
+        {
+          username: user,
+          password: password,
+        }
+      );
+      setAuth(response.data.token);
+      setToggle(!toggle);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -23,7 +37,8 @@ function Home() {
             <input
               className="login-input"
               placeholder={"username"}
-              name={username}
+              value={user}
+              onChange={(e) => setUser(e.target.value)}
             />
           </label>
           <label className="login-item">
@@ -31,7 +46,8 @@ function Home() {
             <input
               className="login-input"
               placeholder={"password"}
-              name={password}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </label>
           <button type="submit" className="login-btn">

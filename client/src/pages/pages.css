@@ -46,7 +46,7 @@ border-radius: 15px;
 font-size: 1.25rem;
 }
 
-.login-btn:hover {
+.login-btn:hover:enabled {
     background: #48cae4;
     cursor: pointer;
 }
@@ -112,7 +112,7 @@ font-size: 1.25rem;
         font-size: 1.25rem;
         font-weight: bolder;}
 
-    .dashboard-clickable {
+.dashboard-clickable {
     border: 0px;
     border-radius: 15px;
     background-color: #48CAE4;
@@ -125,4 +125,17 @@ font-size: 1.25rem;
 .dashboard-clickable:hover {
     background-color: #0096C7;
     cursor: pointer;
+}
+
+.instructions{
+    background-color: #164b68;
+    color: white;
+    font-size: 0.80rem;
+    font-family: Verdana;
+    border-radius: 15px;
+    margin: auto;
+}
+
+.offscreen{
+    display: none;
 }

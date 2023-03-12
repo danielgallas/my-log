@@ -1,18 +1,22 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // importing pages
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
+import Register from "./Register";
 import Dashboard from "./pages/Dashboard";
+import RequireAuth from "./components/RequireAuth";
+import { Routes, Route } from "react-router-dom";
+
 //git comment
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
+    <Routes>
+      <Route path="/" element={<Register />} />
+      <Route path="/log" element={<Dashboard />} />
+      <Route element={<RequireAuth />}>
         <Route path="/log" element={<Dashboard />} />
-      </Routes>
-    </BrowserRouter>
+      </Route>
+    </Routes>
   );
 }
 

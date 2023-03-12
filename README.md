@@ -4,6 +4,11 @@ https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8
 
 ###### THINGS TO DO
 
+Working on Register and Login:
+
+- Carry on from here: https://youtu.be/brcHK3P6ChQ?t=1296
+- Adjust CSS code for register
+
 Minor bugs:
 
 - Frontend: Empty entries have no titles and they return the entry box
@@ -16,7 +21,8 @@ Backend:
 
 MAJOR THINGS:
 
-- Implement token and password
+- DONE: Implement hashed password
+- Implement token
 - Build and deploy app (take care of dotenv)
 - Implement validators
 - Implement error handler
