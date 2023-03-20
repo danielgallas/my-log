@@ -208,7 +208,9 @@ function Register() {
                 Sign Up
               </button>
             </form>
-            <p>Already registered? Sign in</p>
+            <p>
+              Already registered? <a href="/">Sign in</a>
+            </p>
           </div>
         </section>
       )}

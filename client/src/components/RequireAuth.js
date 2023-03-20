@@ -5,11 +5,12 @@ import Dashboard from "../pages/Dashboard";
 const RequireAuth = () => {
   const { auth } = useAuth();
   const location = useLocation();
+  console.log(auth.username);
 
-  return auth?.user ? (
+  return auth?.username ? (
     <Dashboard />
   ) : (
-    <Navigate to="/login" state={{ from: location }} replace />
+    <Navigate to="/" state={{ from: location }} replace />
   );
 };
 

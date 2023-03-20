@@ -1,9 +1,9 @@
 import "./App.css";
 
 // importing pages
-// import Home from "./pages/Home";
-import Register from "./Register";
+import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
 import RequireAuth from "./components/RequireAuth";
 import { Routes, Route } from "react-router-dom";
 
@@ -11,10 +11,10 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Register />} />
-      <Route path="/log" element={<Dashboard />} />
+      <Route path="/" element={<Login />} />
+      <Route path="/register" element={<Register />} />
       <Route element={<RequireAuth />}>
-        <Route path="/log" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Route>
     </Routes>
   );
