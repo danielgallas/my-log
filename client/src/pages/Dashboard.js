@@ -15,7 +15,9 @@ function Dashboard() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/v1/tasks/");
+      const response = await axios.get(
+        "https://my-log-jnwg.onrender.com/api/v1/tasks/"
+      );
       setLogs(response.data.tasks);
     } catch (error) {
       console.log(error);
@@ -24,7 +26,7 @@ function Dashboard() {
 
   const postData = async () => {
     try {
-      await axios.post("http://localhost:5000/api/v1/tasks/", {
+      await axios.post("https://my-log-jnwg.onrender.com/api/v1/tasks/", {
         id: "5",
         title: newTitle,
         entry: newEntry,
@@ -37,11 +39,14 @@ function Dashboard() {
 
   const patchData = async (e, _id) => {
     try {
-      await axios.patch("http://localhost:5000/api/v1/tasks/" + _id, {
-        title: newTitle,
-        entry: newEntry,
-        timestamp: "March 2 2023, 06:17",
-      });
+      await axios.patch(
+        "https://my-log-jnwg.onrender.com/api/v1/tasks/" + _id,
+        {
+          title: newTitle,
+          entry: newEntry,
+          timestamp: "March 2 2023, 06:17",
+        }
+      );
       fetchData();
     } catch (error) {
       console.log(error);
@@ -51,7 +56,9 @@ function Dashboard() {
   const handleDelete = async (e, _id) => {
     e.preventDefault();
     try {
-      await axios.delete("http://localhost:5000/api/v1/tasks/" + _id);
+      await axios.delete(
+        "https://my-log-jnwg.onrender.com/api/v1/tasks/" + _id
+      );
       fetchData();
     } catch (error) {
       console.log(error);
